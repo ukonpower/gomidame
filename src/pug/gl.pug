@@ -1,0 +1,29 @@
+html(lang="ja")
+	head
+		include ./common/_analytics.pug
+		include ./common/_meta.pug
+
+		meta(property="og:url", content="https://gomidame.ukonpower.dev")
+		meta(property="og:image", content=`https://gomidame.ukonpower.dev/${glFileName}/assets/${glFileName}.jpg`)
+		meta(property="og:title", content=`${glName}`)
+		meta(property="og:description", content=`${glDescription}`)
+
+		meta(name="twitter:image" content=`https://gomidame.ukonpower.dev/${glFileName}/assets/${glFileName}.jpg`)
+		meta(name="twitter:title" content=`${glName}`)
+		meta(name="twitter:description" content=`${glDescription}`)
+
+		title #{glName} | GomiDame
+	body
+		.wrapper(data-barba="wrapper")
+			.canvas-wrap
+				canvas#canvas.canvas
+			.container(data-barba="container" data-barba-namespace=glName)
+				include ./common/_header.pug
+				.contents
+					.contents-data
+						.contents-data-title #{glName}
+						.contents-data-description #{glDescription}
+						.contents-data-date #{glDate}
+					.contents-back
+						a(href="../") Back
+		script(src="../js/main.js")

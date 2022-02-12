@@ -1,0 +1,29 @@
+html(lang="ja")
+	head
+		include ./common/_analytics.pug
+		
+		meta(property="og:url", content="https://gomidame.ukonpower.dev")
+		meta(property="og:image", content="https://gomidame.ukonpower.dev/ogp.jpg")
+		meta(property="og:title", content="GomiDame")
+		meta(property="og:description", content="record the sensations and emotions I felt at that time.")
+
+		meta(name="twitter:image" content="https://gomidame.ukonpower.dev/ogp.jpg")
+		meta(name="twitter:title" content="GomiDame")
+		meta(name="twitter:description" content="record the sensations and emotions I felt at that time.")
+
+		include ./common/_meta.pug
+		
+		title GomiDame
+	body
+		.wrapper(data-barba="wrapper")
+			.canvas-wrap
+				canvas#canvas.canvas
+			.container(data-barba="container" data-barba-namespace="main")
+				include ./common/_header.pug
+				.about-link 
+					a(href="./about") About 
+				.ui
+					.ui-scroll
+						.ui-scroll-item.prev
+						.ui-scroll-item.next
+		script(src="../js/script.js")

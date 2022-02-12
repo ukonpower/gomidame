@@ -1,0 +1,20 @@
+html(lang="ja")
+	head
+		include ../common/_analytics.pug
+		include ../common/_meta.pug
+		title About | GomiDame
+	body
+		.wrapper(data-barba="wrapper")
+			.canvas-wrap
+				canvas#canvas.canvas
+			.container(data-barba="container" data-barba-namespace="about")
+				include ../common/_header.pug
+				.about 
+					.about-inner 
+						p ウコンパワーの有象無象.
+				.about-sns
+					a(href="https://twitter.com/UkskSan" target="_blank" rel="noopener noreferrer") twitter 
+					a(href="https://github.com/ukonpower" target="_blank" rel="noopener noreferrer") github 
+				.about-back
+					a(href="../") Back
+		script(src="js/main.js")

@@ -1,8 +1,4 @@
-# three-template-ts
-
-This is a template using threejs and ore-three.
-
-![](./screenshot/three-template-ts.png)
+# GomiDame
 
 ## Install
 
@@ -13,5 +9,5 @@ npm install
 ## Run
 
 ```
-npx gulp
+npm run dev
 ```

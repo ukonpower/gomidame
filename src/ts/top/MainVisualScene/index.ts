@@ -5,6 +5,7 @@ import { CameraController } from './CameraController';
 import { MainVisualManager } from './MainVisualManager';
 import { AssetManager } from './MainVisualManager/AssetManager';
 import { ContentViewer } from './ContentViewer';
+import { MainVisualWorld } from './MainVisualWorld';
 
 export class MainVisualScene extends ORE.BaseLayer {
 
@@ -12,6 +13,8 @@ export class MainVisualScene extends ORE.BaseLayer {
 	private renderPipeline?: RenderPipeline;
 	private cameraController?: CameraController;
 	private contentViewer?: ContentViewer;
+
+	private world?: MainVisualWorld;
 
 	constructor() {
 
@@ -31,9 +34,14 @@ export class MainVisualScene extends ORE.BaseLayer {
 
 		this.gManager = new MainVisualManager();
 
+		window.mainVisualManager = this.gManager;
+
 		this.gManager.assetManager.load( { assets: [
-			{ name: 'scene', path: './assets/scene/scene.glb', type: 'gltf' }
+			{ name: 'scene', path: './assets/scene/scene.glb', type: 'gltf' },
+			{ name: 'garbageCol', path: './assets/scene/img/garbage_color_bake.png', type: 'tex' },
+			{ name: 'wallCol', path: './assets/scene/img/wall_color_bake.png', type: 'tex' },
 		] } );
+
 
 		this.gManager.assetManager.addEventListener( 'loadMustAssets', ( e ) => {
 
@@ -67,6 +75,8 @@ export class MainVisualScene extends ORE.BaseLayer {
 		}
 
 		this.cameraController = new CameraController( this.camera, this.scene.getObjectByName( 'CameraData' ) );
+
+		this.world = new MainVisualWorld( this.info, this.scene, this.commonUniforms );
 
 		let light = new THREE.DirectionalLight();
 		light.position.set( 1, 2, 1 );

@@ -255,7 +255,7 @@ const watch = () => {
 
 	gulp.watch( srcDir + '/pug/**/*', gulp.series( buildPug ) );
 	gulp.watch( srcDir + '/scss/**/*', gulp.series( buildSass ) );
-	gulp.watch( srcDir + '/assets/**/*', gulp.series( copy, reload ) );
+	gulp.watch( [srcDir + '/ts/top/assets/**/*', glPath + '/*/assets/**/*'], gulp.series( copy ) );
 
 };
 

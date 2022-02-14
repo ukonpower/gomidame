@@ -39,7 +39,9 @@ export class MainVisualScene extends ORE.BaseLayer {
 		this.gManager.assetManager.load( { assets: [
 			{ name: 'scene', path: './assets/scene/scene.glb', type: 'gltf' },
 			{ name: 'garbageCol', path: './assets/scene/img/garbage_color_bake.png', type: 'tex' },
+			{ name: 'garbageCanCol', path: './assets/scene/img/garbage_can_color_bake.png', type: 'tex' },
 			{ name: 'wallCol', path: './assets/scene/img/wall_color_bake.png', type: 'tex' },
+			{ name: 'paperCol', path: './assets/scene/img/paper_color_bake.png', type: 'tex' },
 		] } );
 
 

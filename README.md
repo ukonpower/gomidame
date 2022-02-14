@@ -1,4 +1,4 @@
-# GomiDame
+# gomidame
 
 ## Install
 

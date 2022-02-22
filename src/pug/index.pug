@@ -20,10 +20,9 @@ html(lang="ja")
 				canvas#canvas.canvas
 			.container(data-barba="container" data-barba-namespace="main")
 				include ./common/_header.pug
-				.about-link 
-					a(href="./about") About 
-				.ui
-					.ui-scroll
-						.ui-scroll-item.prev
-						.ui-scroll-item.next
+				ul.home-glList 
+					- for (var i = 0; i < glList.length; i++)
+						include ./components/top/_gl.pug
+
+
 		script(src="../js/script.js")

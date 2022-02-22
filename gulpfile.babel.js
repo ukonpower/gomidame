@@ -127,10 +127,15 @@ const buildWebpack = ( cb ) => {
 
 const buildPug = ( cb ) => {
 
+	let glList = require( './src/ts/gl/gl.json' );
+	
 	gulp.src( [ srcDir + '/pug/**/*.pug', '!/**/_*.pug', '!/**/gl.pug' ] )
 		.pipe( plumber() )
 		.pipe( pug( {
 			pretty: true,
+			locals: {
+				glList: glList,
+			}
 		} ) )
 		.pipe( rename( ( path ) => {
 
@@ -139,9 +144,6 @@ const buildPug = ( cb ) => {
 		} ) )
 		.pipe( gulp.dest( outDir ) )
 		.unpipe( browserSync.reload() );
-
-
-	let glList = require( './src/ts/gl/gl.json' );
 
 	for ( let i = 0; i < glList.length; i ++ ) {
 

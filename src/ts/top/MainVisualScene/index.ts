@@ -76,7 +76,7 @@ export class MainVisualScene extends ORE.BaseLayer {
 
 		}
 
-		this.cameraController = new CameraController( this.camera, this.scene.getObjectByName( 'CameraData' ) );
+		this.cameraController = new CameraController( this.camera, this.scene.getObjectByName( 'CameraDatas' ) );
 
 		this.world = new MainVisualWorld( this.info, this.scene, this.commonUniforms );
 

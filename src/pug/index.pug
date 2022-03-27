@@ -19,10 +19,11 @@ html(lang="ja")
 			.canvas-wrap
 				canvas#canvas.canvas
 			.container(data-barba="container" data-barba-namespace="main")
-				include ./common/_header.pug
-				ul.home-glList 
-					- for (var i = 0; i < glList.length; i++)
-						include ./components/top/_gl.pug
+				.inner 
+					include ./common/_header.pug
+					//- ul.home-glList 
+					//- 	- for (var i = 0; i < glList.length; i++)
+					//- 		include ./components/top/_gl.pug
 
 
 		script(src="../js/script.js")

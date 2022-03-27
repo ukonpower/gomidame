@@ -1,5 +1,6 @@
 import * as ORE from '@ore-three-ts';
 import * as THREE from 'three';
+
 import { RenderPipeline } from './RenderPipeline';
 import { CameraController } from './CameraController';
 import { MainVisualManager } from './MainVisualManager';
@@ -7,6 +8,7 @@ import { AssetManager } from './MainVisualManager/AssetManager';
 import { ContentViewer } from './ContentViewer';
 import { MainVisualWorld } from './MainVisualWorld';
 
+import glList from '../../gl/gl.json';
 export class MainVisualScene extends ORE.BaseLayer {
 
 	private gManager?: MainVisualManager;
@@ -78,7 +80,7 @@ export class MainVisualScene extends ORE.BaseLayer {
 
 		this.cameraController = new CameraController( this.camera, this.scene.getObjectByName( 'CameraDatas' ) );
 
-		this.world = new MainVisualWorld( this.info, this.scene, this.commonUniforms );
+		this.world = new MainVisualWorld( this.info, this.scene, this.commonUniforms, glList );
 
 		let light = new THREE.DirectionalLight();
 		light.position.set( 1, 2, 1 );

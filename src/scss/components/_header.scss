@@ -1,0 +1,11 @@
+@use '../global/' as *;
+
+.header {
+	&-title {
+		font-family: $abril;
+		font-size: 100px;
+		text-decoration: none;
+		color: #FFF;
+	}
+	margin-bottom: 20px;
+}

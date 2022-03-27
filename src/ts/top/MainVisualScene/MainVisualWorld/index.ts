@@ -6,6 +6,8 @@ import { Garbages } from './Garbage';
 import { GarbageCan } from './GarbageCan';
 import { Wall } from './Wall';
 import { Papers } from './Papers';
+import { Contents } from './Contents';
+import { GLContent } from 'src/ts/types/gl';
 export class MainVisualWorld {
 
 	private commonUniforms: ORE.Uniforms;
@@ -18,7 +20,9 @@ export class MainVisualWorld {
 	private wall: Wall;
 	private paper: Papers;
 
-	constructor( info: LayerInfo, scene: THREE.Scene, parentUniforms: ORE.Uniforms ) {
+	private contents: Contents;
+
+	constructor( info: LayerInfo, scene: THREE.Scene, parentUniforms: ORE.Uniforms, glContentList: GLContent[] ) {
 
 		this.layerInfo = info;
 		this.scene = scene;
@@ -50,6 +54,21 @@ export class MainVisualWorld {
 
 		this.paper = new Papers( this.scene.getObjectByName( 'Papers' ) as THREE.Object3D, this.commonUniforms );
 
+
+		let g = this.scene.getObjectByName( 'Scene' );
+
+		if ( g ) {
+
+			g.visible = false;
+
+		}
+
+		/*-------------------------------
+			Contents
+		-------------------------------*/
+
+		this.contents = new Contents( this.commonUniforms, glContentList );
+		this.scene.add( this.contents );
 
 	}
 

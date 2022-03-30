@@ -8,6 +8,7 @@ import { Wall } from './Wall';
 import { Papers } from './Papers';
 import { Contents } from './Contents';
 import { GLContent } from 'src/ts/types/gl';
+import { MainGarbageCan } from './MainGarbageCan';
 export class MainVisualWorld {
 
 	private commonUniforms: ORE.Uniforms;
@@ -20,7 +21,8 @@ export class MainVisualWorld {
 	private wall: Wall;
 	private paper: Papers;
 
-	private contents: Contents;
+	private mainCan: MainGarbageCan;
+	// private contents: Contents;
 
 	constructor( info: LayerInfo, scene: THREE.Scene, parentUniforms: ORE.Uniforms, glContentList: GLContent[] ) {
 
@@ -64,11 +66,17 @@ export class MainVisualWorld {
 		}
 
 		/*-------------------------------
-			Contents
+			MainCan
 		-------------------------------*/
 
-		this.contents = new Contents( this.commonUniforms, glContentList );
-		this.scene.add( this.contents );
+		this.mainCan = new MainGarbageCan( new THREE.Mesh(), this.commonUniforms );
+		this.scene.add( this.mainCan );
+
+	}
+
+	public update( deltaTime: number ) {
+
+		this.mainCan.update( deltaTime );
 
 	}
 

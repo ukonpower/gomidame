@@ -22,6 +22,7 @@ export class MainVisualScene extends ORE.BaseLayer {
 
 		super();
 
+		this.scene.background = new THREE.Color( '#ccc' );
 		this.commonUniforms = ORE.UniformsLib.mergeUniforms( this.commonUniforms, {
 			contentVisibility: {
 				value: 0
@@ -89,6 +90,12 @@ export class MainVisualScene extends ORE.BaseLayer {
 	}
 
 	public animate( deltaTime: number ) {
+
+		if ( this.world ) {
+
+			this.world.update( deltaTime );
+
+		}
 
 		if ( this.cameraController ) {
 
